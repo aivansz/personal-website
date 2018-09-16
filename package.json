@@ -17,6 +17,7 @@
     "next": "^6.1.2",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
-    "react-markdown": "^3.6.0"
+    "react-markdown": "^3.6.0",
+    "reactstrap": "^6.4.0"
   }
 }

@@ -1,68 +1,23 @@
-import Layout from '../components/MyLayout.js'
-import Link from 'next/link'
+import MainHeader from '../components/MainHeader';
 
-function getPosts () {
-  return [
-    { id: 'hello-nextjs', title: 'Hello Next.js'},
-    { id: 'learn-nextjs', title: 'Learn Next.js is awesome'},
-    { id: 'deploy-nextjs', title: 'Deploy apps with ZEIT'},
-  ]
-}
+const index = () => 
+    <div>
+        <MainHeader></MainHeader>
+        <style global jsx>
+        {`
+            html{
+                margin: 0 auto;
+                padding: 0 0;
+                height: auto
+            }
+            body{
+                margin: 0 auto;
+                padding: 0 0;
+                height: auto;
+                background-color: #000;
+            }
+        `}
+        </style> 
+    </div>
 
-const PostLink = ({ post }) => (
-    <li>
-      <Link as={`/p/${post.id}`} href={`/post?title=${post.title}`}>
-        <a>{post.title}</a>
-      </Link>
-      <style jsx>{`
-        li {
-          list-style: none;
-          margin: 5px 0;
-        }
-  
-        a {
-          text-decoration: none;
-          color: blue;
-          font-family: "Arial";
-        }
-  
-        a:hover {
-          opacity: 0.6;
-        }
-      `}</style>
-    </li>
-  )
-
-export default () => (
-  <Layout>
-    <h1>My Blog</h1>
-    <ul>
-      {getPosts().map((post) => (
-        <PostLink key={post.id} post={post}/>
-      ))}
-    </ul>
-    <style jsx>{`
-      h1, a {
-        font-family: "Arial";
-      }
-
-      ul {
-        padding: 0;
-      }
-
-      li {
-        list-style: none;
-        margin: 5px 0;
-      }
-
-      a {
-        text-decoration: none;
-        color: blue;
-      }
-
-      a:hover {
-        opacity: 0.6;
-      }
-    `}</style>
-  </Layout>
-)
+export default index;
