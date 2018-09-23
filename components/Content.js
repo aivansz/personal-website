@@ -102,8 +102,8 @@ export default class MainContent extends React.Component {
             <HeaderTitle1>
                 <Logo src={this.logo}/>
             </HeaderTitle1>
-            <Text>Sou <strong>designer de interação</strong> e <strong>desenvolvedor front-end</strong> de <strong>São Paulo</strong> (Capital), graduado em <strong>Publicidade e Propaganda</strong> (Anhembi Morumbi, 2010) e pós-graduado em <strong>Design Digital e Novas Mídias</strong> (Belas Artes, 2014). Atualmente trabalho como líder de front-end no <strong>GPA</strong>. Quando não estou desenvolvendo interfaces, gosto de fazer <strong>música!</strong></Text>
-            <HeaderTitle2>SIGA-ME</HeaderTitle2>
+            <Text>aaaaa</Text>
+            <HeaderTitle2>aaaa</HeaderTitle2>
             <Grid>
                 <Column>
                     <Image src={this.linkedin}/>

@@ -1,3 +1,5 @@
+import React from 'react';
+import pubsub from 'pubsub-js';
 import styled from 'styled-components';
 
 const InnerHeader = styled.header`
@@ -18,7 +20,7 @@ const HeaderButton = styled.button`
   color 0.3s ease ;
   cursor: pointer;
   height: 30px;
-  width: 30px;
+  width: 35px;
   border: 1px black solid;
   font-size:16px;
   background-color: white;
@@ -29,14 +31,31 @@ const HeaderButton = styled.button`
   border-radius: 3.2px;
 `
 
-const MainHeader = () => (
-  <div>
+class MainHeader extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {lang: this.props.lang};
+    console.log(this.props);
+  }
+
+  changeLang(lang){
+    let text = {};
+    if(lang === 'PT'){
+        this.setState({info: text['EN']});
+    }else{
+        this.setState({info: text['PT']});
+    }
+  }
+
+  render(){
+    return (
+      <div>
         <InnerHeader id="main-header">
-          <HeaderButton>
-          Br
-          </HeaderButton>
+          <HeaderButton onClick={this.changeLang}>{this.props.lang}</HeaderButton>
         </InnerHeader>
-  </div>
-)
+      </div>
+    )
+  }
+}
 
 export default MainHeader;

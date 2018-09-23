@@ -1,3 +1,4 @@
+import React from 'react';
 import MainHeader from '../components/MainHeader';
 import Content from '../components/Content';
 import { injectGlobal } from 'styled-components';
@@ -14,10 +15,23 @@ injectGlobal`
   }
 `
 
-const index = () => 
-    <div>
-        <MainHeader></MainHeader>
-        <Content></Content>
-    </div>
+class index extends React.Component{
+    constructor(){
+        super();
+        this.state = {lang : 'PT'}
+    }
+
+    
+
+    render(){
+        return (
+            <div>
+                <MainHeader lang={this.state.lang}></MainHeader>
+                <Content lang={this.state.lang} ></Content>
+            </div>
+        )
+    }
+} 
+    
 
 export default index;
