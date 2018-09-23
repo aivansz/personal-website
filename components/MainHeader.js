@@ -8,6 +8,9 @@ const InnerHeader = styled.header`
   height: 61px;
   width: 100%;
   box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  width: 100%;
 `
   
 const HeaderButton = styled.button`
