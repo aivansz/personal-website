@@ -9,8 +9,17 @@ app.prepare()
 .then(() => {
   const server = express()
 
+  server.get('/', (req, res) => {
+    res.redirect(301, '/pt-br');
+  })
 
-  server.get('*/:lang', (req, res) => {
+  server.get('/:lang', (req, res) => {
+    const actualPage = '/'
+    const queryParams = { title: req.params.lang } 
+    app.render(req, res, actualPage, queryParams)
+  })
+
+  server.get('*', (req, res) => {
     return handle(req, res)
   })
 

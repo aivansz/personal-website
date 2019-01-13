@@ -86,13 +86,17 @@ const Image = styled.img`
 ` 
 
 export default class MainContent extends React.Component {
-    constructor(){
-        super(mainPic, Logo, linkedin, behance, medium);
+    constructor(props){
+        super(mainPic, Logo, linkedin, behance, medium, props);
         this.mainPic = mainPic;
         this.logo = logo;
         this.linkedin = linkedin;
         this.behance = behance;
         this.medium = medium;
+    }
+
+    static defaultProps = {
+        lang: 'PT'
     }
     
     render() {
