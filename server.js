@@ -10,18 +10,19 @@ app.prepare()
   const server = express()
 
   server.get('/', (req, res) => {
-    res.redirect(301, '/pt-br');
+    res.redirect(301, '/pt');
   })
 
   server.get('/:lang', (req, res) => {
     const actualPage = '/'
-    const queryParams = { title: req.params.lang } 
+    const queryParams = req.params 
+    console.log('From REQ:::',queryParams);
     app.render(req, res, actualPage, queryParams)
   })
 
-  server.get('*', (req, res) => {
+  /*server.get('*', (req, res) => {
     return handle(req, res)
-  })
+  })*/
 
   server.listen(3000, (err) => {
     if (err) throw err

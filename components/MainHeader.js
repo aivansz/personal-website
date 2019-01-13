@@ -1,6 +1,6 @@
 import React from 'react';
-import pubsub from 'pubsub-js';
 import styled from 'styled-components';
+import Link from 'next/link'
 
 const InnerHeader = styled.header`
   text-align: right!important;
@@ -15,7 +15,7 @@ const InnerHeader = styled.header`
   width: 100%;
 `
   
-const HeaderButton = styled.button`
+const HeaderButton = styled(Link)`
   transition: background-color 0.3s ease,
   color 0.3s ease ;
   cursor: pointer;
@@ -23,6 +23,8 @@ const HeaderButton = styled.button`
   width: 35px;
   border: 1px black solid;
   font-size:16px;
+  text-transform: uppercase!important;
+  text-decoration: none!important;
   background-color: white;
   &:hover{
     background-color: black;
@@ -34,16 +36,14 @@ const HeaderButton = styled.button`
 class MainHeader extends React.Component{
   constructor(props){
     super(props);
-    this.state = {lang: this.props.lang};
-    console.log(this.props);
+    this.state = {lang: this.props.lang, info: 'PT'};
   }
 
-  changeLang(lang){
-    let text = {};
-    if(lang === 'PT'){
-        this.setState({info: text['EN']});
-    }else{
-        this.setState({info: text['PT']});
+  componentWillMount(){
+    if(this.props.lang === 'pt'){
+      this.setState({info: 'en'});
+    }else if(this.props.lang === 'en' ){
+      this.setState({info: 'pt'});
     }
   }
 
@@ -51,7 +51,7 @@ class MainHeader extends React.Component{
     return (
       <div>
         <InnerHeader id="main-header">
-          <HeaderButton onClick={this.changeLang}>{this.props.lang}</HeaderButton>
+          <HeaderButton href={'/' + this.state.info}>{this.state.info}</HeaderButton>
         </InnerHeader>
       </div>
     )

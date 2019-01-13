@@ -6,6 +6,7 @@ import linkedin from '../assets/linkedin';
 import behance from '../assets/behance';
 import medium from '../assets/medium';
 
+
 const Content = styled.div`
     box-sizing: border-box;
     padding: 0 15px 15px;
@@ -93,10 +94,23 @@ export default class MainContent extends React.Component {
         this.linkedin = linkedin;
         this.behance = behance;
         this.medium = medium;
+        this.state = {text: {header: '', body: ''}}
     }
 
-    static defaultProps = {
-        lang: 'PT'
+    componentWillMount(){
+        if(this.props.lang === 'pt'){
+            this.setState({text: {
+                    header: 'SIGA-ME',
+                    body: "Sou designer de interação e desenvolvedor front-end de São Paulo (Capital), graduado em Publicidade e Propaganda (Anhembi Morumbi, 2010) e pós-graduado em Design Digital e Novas Mídias (Belas Artes, 2014). Atualmente trabalho como líder de front-end no GPA. Quando não estou desenvolvendo interfaces, gosto de fazer música!"
+                }
+            });
+        }else if(this.props.lang === 'en'){
+            this.setState({text: {
+                header: 'FOLLOW-ME',
+                body: "I'm a interaction designer and front-end developer from São Paulo (Brazil), graduated in Advertising and Propaganda (Anhembi Morumbi, 2010) and postgraduated in Digital Design and New Media (Belas Artes, 2014). Currently working at GPA as front-end lead. When I'm not designing interfaces, I like to make music!"
+            }
+        });
+        }
     }
     
     render() {
@@ -106,8 +120,8 @@ export default class MainContent extends React.Component {
             <HeaderTitle1>
                 <Logo src={this.logo}/>
             </HeaderTitle1>
-            <Text>aaaaa</Text>
-            <HeaderTitle2>aaaa</HeaderTitle2>
+            <Text>{this.state.text.body}</Text>
+            <HeaderTitle2>{this.state.text.header}</HeaderTitle2>
             <Grid>
                 <Column>
                     <Image src={this.linkedin}/>

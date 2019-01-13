@@ -27,8 +27,9 @@ class index extends React.Component{
     render(){
         return (
             <div>
-                <MainHeader lang={this.state.lang}></MainHeader>
-                <Content lang={this.state.lang} ></Content>
+                <MainHeader lang={this.props.url.query.lang}></MainHeader>
+                <Content lang={this.props.url.query.lang} ></Content>
+                {console.log('From props::::::',this.props.url.query.lang)} 
             </div>
         )
     }
