@@ -5,6 +5,10 @@ import logo from '../assets/logo';
 import linkedin from '../assets/linkedin';
 import behance from '../assets/behance';
 import medium from '../assets/medium';
+import { CSSTransitionGroup } from 'react-transition-group' 
+
+const appearDuration = 500;
+const transitionName = `content`;
 
 
 const Content = styled.div`
@@ -15,8 +19,14 @@ const Content = styled.div`
     text-align: center;
     @media (min-width: 768px){
         padding: 0 15px 30px;
-    }  
-`
+    };
+    &.${transitionName}-appear {
+            opacity: 0.1;
+    };
+    &.${transitionName}-appear.${transitionName}-appear-active {
+            opacity: 1;
+            transition: opacity 500ms ease-in;
+    }`  
 
 const MainImage = styled.img`
     border-radius: 50%;
@@ -88,6 +98,7 @@ const Image = styled.img`
 
 export default class MainContent extends React.Component {
     constructor(props){
+        super();
         super(mainPic, Logo, linkedin, behance, medium, props);
         this.mainPic = mainPic;
         this.logo = logo;
@@ -115,6 +126,12 @@ export default class MainContent extends React.Component {
     
     render() {
         return(
+        <CSSTransitionGroup 
+            transitionName={transitionName}
+            transitionAppear={true}
+            transitionAppearTimeout={appearDuration}
+            transitionEnter={false}
+            transitionLeave={false}>
         <Content>
             <MainImage src={this.mainPic}/>
             <HeaderTitle1>
@@ -134,6 +151,6 @@ export default class MainContent extends React.Component {
                 </Column>
             </Grid>
         </Content>
-        )
+        </CSSTransitionGroup>        )
     }
 }

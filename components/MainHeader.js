@@ -15,22 +15,28 @@ const InnerHeader = styled.header`
   width: 100%;
 `
   
-const HeaderButton = styled(Link)`
+const HeaderButton = styled.a`
   transition: background-color 0.3s ease,
   color 0.3s ease ;
+  display:inline-block;
   cursor: pointer;
   height: 30px;
   width: 35px;
   border: 1px black solid;
   font-size:16px;
-  text-transform: uppercase!important;
-  text-decoration: none!important;
+  text-transform: uppercase;
+  text-decoration: none;
   background-color: white;
   &:hover{
     background-color: black;
     color: white 
   }
   border-radius: 3.2px;
+  text-align:center;
+  vertical-align:middle;
+  padding: auto auto;
+  margin: auto auto;
+  line-height: 30px;
 `
 
 class MainHeader extends React.Component{
