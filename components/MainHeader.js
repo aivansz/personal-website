@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Link from 'next/link'
+import Router from 'next/router'
+
 
 const InnerHeader = styled.header`
   text-align: right!important;
@@ -15,7 +16,7 @@ const InnerHeader = styled.header`
   width: 100%;
 `
   
-const HeaderButton = styled.a`
+const HeaderButton = styled.button`
   transition: background-color 0.3s ease,
   color 0.3s ease ;
   display:inline-block;
@@ -57,7 +58,7 @@ class MainHeader extends React.Component{
     return (
       <div>
         <InnerHeader id="main-header">
-          <HeaderButton href={'/' + this.state.info}>{this.state.info}</HeaderButton>
+          <HeaderButton click={console.log('clocked!')}>{this.state.info}</HeaderButton>
         </InnerHeader>
       </div>
     )

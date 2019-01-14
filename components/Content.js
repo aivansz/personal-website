@@ -7,10 +7,6 @@ import behance from '../assets/behance';
 import medium from '../assets/medium';
 import { CSSTransitionGroup } from 'react-transition-group' 
 
-const appearDuration = 500;
-const transitionName = `content`;
-
-
 const Content = styled.div`
     box-sizing: border-box;
     padding: 0 15px 15px;
@@ -20,10 +16,10 @@ const Content = styled.div`
     @media (min-width: 768px){
         padding: 0 15px 30px;
     };
-    &.${transitionName}-appear {
-            opacity: 0.1;
+    &.content-appear {
+            opacity: .1;
     };
-    &.${transitionName}-appear.${transitionName}-appear-active {
+    &.content-appear.content-appear-active {
             opacity: 1;
             transition: opacity 500ms ease-in;
     }`  
@@ -109,6 +105,7 @@ export default class MainContent extends React.Component {
     }
 
     componentWillMount(){
+        console.log('WILLmount')
         if(this.props.lang === 'pt'){
             this.setState({text: {
                     header: 'SIGA-ME',
@@ -121,15 +118,15 @@ export default class MainContent extends React.Component {
                 body: "I'm a interaction designer and front-end developer from São Paulo (Brazil), graduated in Advertising and Propaganda (Anhembi Morumbi, 2010) and postgraduated in Digital Design and New Media (Belas Artes, 2014). Currently working at GPA as front-end lead. When I'm not designing interfaces, I like to make music!"
             }
         });
-        }
+        }else{console.log('EITA::::', this.props.lang)}
     }
     
     render() {
         return(
         <CSSTransitionGroup 
-            transitionName={transitionName}
+            transitionName={'content'}
             transitionAppear={true}
-            transitionAppearTimeout={appearDuration}
+            transitionAppearTimeout={500}
             transitionEnter={false}
             transitionLeave={false}>
         <Content>
@@ -151,6 +148,7 @@ export default class MainContent extends React.Component {
                 </Column>
             </Grid>
         </Content>
+        {console.log('PROPS:::::', this.props)}
         </CSSTransitionGroup>        )
     }
 }
