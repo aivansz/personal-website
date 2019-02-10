@@ -58,7 +58,7 @@ class MainHeader extends React.Component{
     return (
       <div>
         <InnerHeader id="main-header">
-          <HeaderButton click={console.log('clocked!')}>{this.state.info}</HeaderButton>
+          <HeaderButton click={console.log('clicked!')}>{this.state.info}</HeaderButton>
         </InnerHeader>
       </div>
     )

@@ -1,5 +1,4 @@
 import React from 'react';
-import {withRouter} from 'next/router';
 import MainHeader from '../components/MainHeader';
 import Content from '../components/Content';
 import { injectGlobal } from 'styled-components';

@@ -4,8 +4,7 @@ import mainPic from '../assets/main-pic';
 import logo from '../assets/logo';
 import linkedin from '../assets/linkedin';
 import behance from '../assets/behance';
-import medium from '../assets/medium';
-import { CSSTransitionGroup } from 'react-transition-group' 
+import medium from '../assets/medium'; 
 
 const Content = styled.div`
     box-sizing: border-box;
@@ -123,12 +122,6 @@ export default class MainContent extends React.Component {
     
     render() {
         return(
-        <CSSTransitionGroup 
-            transitionName={'content'}
-            transitionAppear={true}
-            transitionAppearTimeout={500}
-            transitionEnter={false}
-            transitionLeave={false}>
         <Content>
             <MainImage src={this.mainPic}/>
             <HeaderTitle1>
@@ -147,8 +140,6 @@ export default class MainContent extends React.Component {
                     <Image src={this.medium}/>
                 </Column>
             </Grid>
-        </Content>
-        {console.log('PROPS:::::', this.props)}
-        </CSSTransitionGroup>        )
+        </Content>     )
     }
 }
