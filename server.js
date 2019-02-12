@@ -10,7 +10,7 @@ app.prepare()
   const server = express()
 
   server.get('/', (req, res) => {
-    res.redirect(301, '/pt');
+    res.redirect(301, '/pt-br');
   })
 
   server.get('/:lang', (req, res) => {

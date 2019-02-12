@@ -2,6 +2,7 @@ import React from 'react';
 import MainHeader from '../components/MainHeader';
 import Content from '../components/Content';
 import { injectGlobal } from 'styled-components';
+import { withRouter } from 'next/router';
 
 injectGlobal`
   html, body {
@@ -24,15 +25,16 @@ class index extends React.Component{
     
 
     render(){
+        console.log('from PAGE::::', this.props);
         return (
             <div>
-                <MainHeader lang={this.props.url.query.lang}></MainHeader>
-                <Content lang={this.props.url.query.lang} ></Content>
-                {console.log('From props::::::',this.props.url.query.lang)} 
+                <MainHeader lang={this.props.router.query.lang}></MainHeader>
+                <Content lang={this.props.router.query.lang} ></Content>
+                {/*console.log('From props::::::',this.props.url.query.lang)*/} 
             </div>
         )
     }
 } 
     
 
-export default index;
+export default withRouter(index);
