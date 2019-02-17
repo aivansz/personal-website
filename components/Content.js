@@ -80,6 +80,13 @@ const Grid = styled.div`
     @media (min-width: 768px){
         width: 80%;
     }
+    .social-image{
+        transition: filter 0.8s ease;
+        filter: invert(0%);
+    }
+    .social-image:hover{
+        filter: invert(100%)
+    }
 `
 const Column = styled.div`
     align-self: center;
@@ -93,7 +100,7 @@ const Image = styled.img`
 
 export default class MainContent extends React.Component {
     constructor(props){
-        super();
+        super(props);
         super(mainPic, Logo, linkedin, behance, medium, props);
         this.mainPic = mainPic;
         this.logo = logo;
@@ -104,8 +111,7 @@ export default class MainContent extends React.Component {
     }
 
     componentWillMount(){
-        console.log('WILLmount')
-        if(this.props.lang === 'pt'){
+        if(this.props.lang === 'pt-br'){
             this.setState({text: {
                     header: 'SIGA-ME',
                     body: "Sou designer de interação e desenvolvedor front-end de São Paulo (Capital), graduado em Publicidade e Propaganda (Anhembi Morumbi, 2010) e pós-graduado em Design Digital e Novas Mídias (Belas Artes, 2014). Atualmente trabalho como líder de front-end no GPA. Quando não estou desenvolvendo interfaces, gosto de fazer música!"
@@ -131,13 +137,13 @@ export default class MainContent extends React.Component {
             <HeaderTitle2>{this.state.text.header}</HeaderTitle2>
             <Grid>
                 <Column>
-                    <Image src={this.linkedin}/>
+                    <Image className="social-image" src={this.linkedin}/>
                 </Column>
                 <Column>
-                    <Image src={this.behance}/>
+                    <Image className="social-image" src={this.behance}/>
                 </Column>
                 <Column>
-                    <Image src={this.medium}/>
+                    <Image className="social-image" src={this.medium}/>
                 </Column>
             </Grid>
         </Content>     )

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Router from 'next/router'
+import Link from 'next/link';
 
 
 const InnerHeader = styled.header`
@@ -19,12 +19,11 @@ const InnerHeader = styled.header`
 const HeaderButton = styled.button`
   transition: background-color 0.3s ease,
   color 0.3s ease ;
-  display:inline-block;
   cursor: pointer;
   height: 30px;
   width: 35px;
   border: 1px black solid;
-  font-size:16px;
+  font-size:15px;
   text-transform: uppercase;
   text-decoration: none;
   background-color: white;
@@ -37,20 +36,23 @@ const HeaderButton = styled.button`
   vertical-align:middle;
   padding: auto auto;
   margin: auto auto;
-  line-height: 30px;
+  line-height: 18px;
 `
 
 class MainHeader extends React.Component{
   constructor(props){
     super(props);
-    this.state = {lang: this.props.lang, info: 'PT'};
+    this.state = {lang: this.props.lang, 
+                  info: 'PT',
+                  link: '/en'
+                  };
   }
 
   componentWillMount(){
-    if(this.props.lang === 'pt'){
-      this.setState({info: 'en'});
+    if(this.props.lang === 'pt-br'){
+      this.setState({info: 'EN', link: '/en'});
     }else if(this.props.lang === 'en' ){
-      this.setState({info: 'pt'});
+      this.setState({info: 'PT', link: '/pt-br'});
     }
   }
 
@@ -58,7 +60,9 @@ class MainHeader extends React.Component{
     return (
       <div>
         <InnerHeader id="main-header">
-          <HeaderButton click={console.log('clicked!')}>{this.state.info}</HeaderButton>
+            <Link href={this.state.link}>
+                <HeaderButton>{this.state.info}</HeaderButton>
+            </Link>
         </InnerHeader>
       </div>
     )

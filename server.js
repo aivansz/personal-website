@@ -16,13 +16,12 @@ app.prepare()
   server.get('/:lang', (req, res) => {
     const actualPage = '/'
     const queryParams = req.params 
-    console.log('From REQ:::',queryParams);
     app.render(req, res, actualPage, queryParams)
   })
 
-  /*server.get('*', (req, res) => {
+  server.get('/_next/*', (req, res) => {
     return handle(req, res)
-  })*/
+  })
 
   server.listen(3000, (err) => {
     if (err) throw err

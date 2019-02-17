@@ -13,7 +13,6 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <title>Ivan Oliveira</title>
           <meta name="viewport" content="width=device-width, user-scalable=no"/>
           {this.props.styleTags}
         </Head>

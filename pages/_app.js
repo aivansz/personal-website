@@ -3,44 +3,57 @@ import App, { Container } from 'next/app'
 import { PageTransition } from 'next-page-transitions'
 import styled from 'styled-components'
 
-const PageTransition1 = styled(PageTransition)`
+const Wrapper = styled.div`
     .page-transition-enter {
         opacity: 0;
-        background-color: red;
     }
-    .page-transition-enter-active {
+    > .page-transition-enter-active {
         opacity: 1;
-        transition: opacity 3000ms;
+        transition: opacity 300ms;
     }
-    .page-transition-exit {
+    > .page-transition-exit {
         opacity: 1;
     }
-    .page-transition-exit-active {
+    > .page-transition-exit-active {
         opacity: 0;
         transition: opacity 3000ms;
-    }    
+    }
+    > .transition-will-mount{
+      opacity: 0
+    }
+    > .transition-will-mount{
+      opacity: 1;
+      transition: opacity 3000ms;
+    }      
 `
 
 export default class MyApp extends App {
+
+  constructor(props){
+    super();
+    this.state = {componentTransition: 'transition'}
+  }
+
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {}
 
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx)
-      console.log('onAPP::::', pageProps);
     }
 
     return { pageProps }
   }
 
   render () {
-    const { Component, pageProps, ctx} = this.props
+    const { Component, pageProps} = this.props
 
     return (
       <Container>
-            <PageTransition1 timeout={3000}classNames="page-transition">
-                <Component {...pageProps} />
-            </PageTransition1>
+        <Wrapper>
+            <PageTransition timeout={300}classNames="page-transition">
+                <Component key={this.props.router.route} {...pageProps} />
+            </PageTransition>            
+        </Wrapper>
       </Container>
     )
   }

@@ -22,15 +22,11 @@ class index extends React.Component{
         this.state = {lang : 'PT'}
     }
 
-    
-
     render(){
-        console.log('from PAGE::::', this.props);
         return (
             <div>
                 <MainHeader lang={this.props.router.query.lang}></MainHeader>
-                <Content lang={this.props.router.query.lang} ></Content>
-                {/*console.log('From props::::::',this.props.url.query.lang)*/} 
+                <Content lang={this.props.router.query.lang} ></Content> 
             </div>
         )
     }
