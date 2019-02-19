@@ -5,10 +5,11 @@ const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
+const server = express()
+
 app.prepare()
 .then(() => {
-  const server = express()
-
+  
   server.get('/', (req, res) => {
     res.redirect(301, '/pt-br');
   })
@@ -20,6 +21,10 @@ app.prepare()
   })
 
   server.get('/_next/*', (req, res) => {
+    return handle(req, res)
+  })
+
+  server.get('*', (req, res) => {
     return handle(req, res)
   })
 

@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components';
-import mainPic from '../assets/main-pic';
-import logo from '../assets/logo';
-import linkedin from '../assets/linkedin';
-import behance from '../assets/behance';
-import medium from '../assets/medium'; 
+import mainPic from '../static/main-pic';
+import logo from '../static/logo';
+import linkedin from '../static/linkedin';
+import behance from '../static/behance';
+import medium from '../static/medium'; 
 
 const Content = styled.div`
     box-sizing: border-box;

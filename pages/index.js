@@ -3,6 +3,7 @@ import MainHeader from '../components/MainHeader';
 import Content from '../components/Content';
 import { injectGlobal } from 'styled-components';
 import { withRouter } from 'next/router';
+import Head from 'next/head';
 
 injectGlobal`
   html, body {
@@ -25,6 +26,10 @@ class index extends React.Component{
     render(){
         return (
             <div>
+                <Head>
+                    <title>Ivan Oliveira</title>
+                    <link rel="shortcut icon" href="static/favicon.ico" />
+                </Head>
                 <MainHeader lang={this.props.router.query.lang}></MainHeader>
                 <Content lang={this.props.router.query.lang} ></Content> 
             </div>
