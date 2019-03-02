@@ -4,7 +4,9 @@ import mainPic from '../static/main-pic';
 import logo from '../static/logo';
 import linkedin from '../static/linkedin';
 import behance from '../static/behance';
-import medium from '../static/medium'; 
+import medium from '../static/medium';
+import Link from 'next/link';
+
 
 const Content = styled.div`
     box-sizing: border-box;
@@ -137,13 +139,19 @@ export default class MainContent extends React.Component {
             <HeaderTitle2>{this.state.text.header}</HeaderTitle2>
             <Grid>
                 <Column>
-                    <Image className="social-image" src={this.linkedin}/>
+                    <link href="https://www.linkedin.com/in/ivan-oliveira-8541002b" >
+                        <Image className="social-image" src={this.linkedin}/>
+                    </link>
                 </Column>
                 <Column>
-                    <Image className="social-image" src={this.behance}/>
+                    <link href="https://www.behance.net/ivanoliveira" > 
+                        <Image className="social-image" src={this.behance}/>
+                    </link>
                 </Column>
                 <Column>
-                    <Image className="social-image" src={this.medium}/>
+                    <link href="https://medium.com/@ivanoliveira" >
+                        <Image className="social-image" src={this.medium}/>
+                    </link>
                 </Column>
             </Grid>
         </Content>     )
