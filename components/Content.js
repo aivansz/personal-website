@@ -1,10 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
 import mainPic from '../static/main-pic';
-import logo from '../static/logo';
-import linkedin from '../static/linkedin';
-import behance from '../static/behance';
-import medium from '../static/medium';
 import Link from 'next/link';
 
 
@@ -103,12 +99,8 @@ const Image = styled.img`
 export default class MainContent extends React.Component {
     constructor(props){
         super(props);
-        super(mainPic, Logo, linkedin, behance, medium, props);
+        super(mainPic, props);
         this.mainPic = mainPic;
-        this.logo = logo;
-        this.linkedin = linkedin;
-        this.behance = behance;
-        this.medium = medium;
         this.state = {text: {header: '', body: ''}}
     }
 
@@ -133,24 +125,24 @@ export default class MainContent extends React.Component {
         <Content>
             <MainImage src={this.mainPic}/>
             <HeaderTitle1>
-                <Logo src={this.logo}/>
+                <Logo src="/static/logo.png"/>
             </HeaderTitle1>
             <Text>{this.state.text.body}</Text>
             <HeaderTitle2>{this.state.text.header}</HeaderTitle2>
             <Grid>
                 <Column>
                     <Link href="https://www.linkedin.com/in/ivan-oliveira-8541002b" >
-                        <Image className="social-image" src={this.linkedin}/>
+                        <Image className="social-image" src="/static/linkedin.png"/>
                     </Link>
                 </Column>
                 <Column>
                     <Link href="https://www.behance.net/ivanoliveira" > 
-                        <Image className="social-image" src={this.behance}/>
+                        <Image className="social-image" src="/static/behance.png"/>
                     </Link>
                 </Column>
                 <Column>
                     <Link href="https://medium.com/@ivanoliveira" >
-                        <Image className="social-image" src={this.medium}/>
+                        <Image className="social-image" src="/static/medium.png"/>
                     </Link>
                 </Column>
             </Grid>
