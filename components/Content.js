@@ -91,6 +91,7 @@ const Column = styled.div`
 `
 const Image = styled.img`
     height: 85px;
+    cursor:pointer;
     @media (min-width: 768px){
         height: 187.5px
     }
