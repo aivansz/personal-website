@@ -132,19 +132,19 @@ export default class MainContent extends React.Component {
             <HeaderTitle2>{this.state.text.header}</HeaderTitle2>
             <Grid>
                 <Column>
-                    <Link href="https://www.linkedin.com/in/ivan-oliveira-8541002b" >
+                    <a alt="linkedin" href="https://www.linkedin.com/in/ivan-oliveira-8541002b" >
                         <Image className="social-image" src="/static/linkedin.png"/>
-                    </Link>
+                    </a>
                 </Column>
                 <Column>
-                    <Link href="https://www.behance.net/ivanoliveira" > 
+                    <a alt="Behance" href="https://www.behance.net/ivanoliveira" > 
                         <Image className="social-image" src="/static/behance.png"/>
-                    </Link>
+                    </a>
                 </Column>
                 <Column>
-                    <Link href="https://medium.com/@ivanoliveira" >
-                        <Image className="social-image" src="/static/medium.png"/>
-                    </Link>
+                    <a href="https://medium.com/@ivanoliveira" >
+                        <Image alt="Medium" className="social-image" src="/static/medium.png"/>
+                    </a>
                 </Column>
             </Grid>
         </Content>     )

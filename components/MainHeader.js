@@ -34,9 +34,8 @@ const HeaderButton = styled.button`
   border-radius: 3.2px;
   text-align:center;
   vertical-align:middle;
-  padding: auto auto;
   margin: auto auto;
-  line-height: 18px;
+  line-height: 28px;
 `
 
 class MainHeader extends React.Component{
