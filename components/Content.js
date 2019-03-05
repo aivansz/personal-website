@@ -60,7 +60,7 @@ const HeaderTitle2 = styled.h2`
 
 const Text = styled.p`
     color: white;
-    font-size: 18px;
+    font-size: 21px;
     font-weight: 400;
     line-height: 26px;
     text-size-adjust: 100%;

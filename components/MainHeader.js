@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 
 const InnerHeader = styled.header`
-  text-align: right!important;
+  text-align: right;
   background-color: white;
   padding: 15px 15px 0;
   margin: 0 auto 30px auto;
@@ -35,7 +35,9 @@ const HeaderButton = styled.button`
   text-align:center;
   vertical-align:middle;
   margin: auto auto;
+  padding: 0 5px;  
   line-height: 28px;
+  display: inline-block;
 `
 
 class MainHeader extends React.Component{
